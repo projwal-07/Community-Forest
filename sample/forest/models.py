@@ -78,6 +78,52 @@ class Chetriya_Samiti_Member(models.Model):
         return f"{self.name} ({self.position}) - {self.chetra.chetra_name}"
 
 #Model For Karya Samiti
+class Karya_Samiti_Member(models.Model):
+    POSITION_CHOICES = [
+        ('chairman', 'Chairman'),
+        ('secretary', 'Secretary'),
+        ('treasurer', 'Treasurer'),
+        ('member', 'Member'),
+        ('advisor', 'Advisor'),
+    ]
+
+
+    name = models.CharField(max_length=100)
+    position = models.CharField(max_length=100,choices=POSITION_CHOICES)
+    image = models.ImageField(upload_to= 'images/karya_samiti', default='default_image.jpg')
+
+#Model for Lekha Samiti
+
+class Lekha_Samiti_Member(models.Model):
+    POSITION_CHOICES = [
+        ('chairman', 'Chairman'),
+        ('secretary', 'Secretary'),
+        ('treasurer', 'Treasurer'),
+        ('member', 'Member'),
+        ('advisor', 'Advisor'),
+    ]
+
+
+    name = models.CharField(max_length=100)
+    position = models.CharField(max_length=100,choices=POSITION_CHOICES)
+    image = models.ImageField(upload_to= 'images/lekha_samiti', default='default_image.jpg')
+
+#Model for Salakar Samiti
+
+class Salakar_Samiti_Member(models.Model):
+    POSITION_CHOICES = [
+        ('chairman', 'Chairman'),
+        ('secretary', 'Secretary'),
+        ('treasurer', 'Treasurer'),
+        ('member', 'Member'),
+        ('advisor', 'Advisor'),
+    ]
+
+
+    name = models.CharField(max_length=100)
+    position = models.CharField(max_length=100,choices=POSITION_CHOICES)
+    image = models.ImageField(upload_to= 'images/lekha_samiti', default='default_image.jpg')
+
 #To Delete the Chetriya Samiti Image from database and device
     
 @receiver(post_delete, sender=Chetriya_Samiti_Member,)
